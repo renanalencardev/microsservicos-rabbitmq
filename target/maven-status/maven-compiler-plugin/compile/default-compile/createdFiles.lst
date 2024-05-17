@@ -1,0 +1,3 @@
+com\alencar\propostaapp\mapper\PropostaMapper.class
+com\alencar\propostaapp\mapper\PropostaMapperImpl.class
+com\alencar\propostaapp\repository\PropostaRepository.class
