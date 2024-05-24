@@ -1,3 +1,10 @@
+com\alencar\propostaapp\entity\Usuario.class
 com\alencar\propostaapp\mapper\PropostaMapper.class
+com\alencar\propostaapp\dto\PropostaRequestDto.class
+com\alencar\propostaapp\service\PropostaService.class
+com\alencar\propostaapp\dto\PropostaResponseDto.class
+com\alencar\propostaapp\PropostaAppApplication.class
+com\alencar\propostaapp\controller\PropostaController.class
+com\alencar\propostaapp\entity\Proposta.class
 com\alencar\propostaapp\mapper\PropostaMapperImpl.class
 com\alencar\propostaapp\repository\PropostaRepository.class
