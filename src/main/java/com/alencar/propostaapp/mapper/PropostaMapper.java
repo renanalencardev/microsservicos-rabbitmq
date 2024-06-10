@@ -9,7 +9,9 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface PropostaMapper {
+
     PropostaMapper INSTANCE = Mappers.getMapper(PropostaMapper.class);
+
     @Mapping(target = "usuario.nome", source = "nome")
     @Mapping(target = "usuario.sobrenome", source = "sobrenome")
     @Mapping(target = "usuario.cpf", source = "cpf")

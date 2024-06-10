@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PropostaRequestDto {
     private String nome;
     private String sobrenome;
@@ -17,4 +19,5 @@ public class PropostaRequestDto {
     private Double renda;
     private Double valorSolicitado;
     private int prazoPagamento;
+
 }

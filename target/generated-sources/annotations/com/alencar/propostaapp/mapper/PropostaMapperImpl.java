@@ -8,8 +8,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-23T13:11:02-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.7 (Azul Systems, Inc.)"
+    date = "2024-06-10T14:18:10-0300",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.11 (Oracle Corporation)"
 )
 public class PropostaMapperImpl implements PropostaMapper {
 
