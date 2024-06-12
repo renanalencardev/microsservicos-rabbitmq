@@ -5,12 +5,13 @@ import com.alencar.propostaapp.dto.PropostaResponseDto;
 import com.alencar.propostaapp.entity.Proposta;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.MappingConstants;
 
-@Mapper
+import java.text.NumberFormat;
+import java.util.List;
+
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PropostaMapper {
-
-    PropostaMapper INSTANCE = Mappers.getMapper(PropostaMapper.class);
 
     @Mapping(target = "usuario.nome", source = "nome")
     @Mapping(target = "usuario.sobrenome", source = "sobrenome")
@@ -28,5 +29,12 @@ public interface PropostaMapper {
     @Mapping(target = "telefone", source = "usuario.telefone")
     @Mapping(target = "cpf", source = "usuario.cpf")
     @Mapping(target = "renda", source = "usuario.renda")
+    @Mapping(target = "valorSolicitadoFmt", expression = "java(setValorSolicitadoFmt(proposta))")
     PropostaResponseDto convertPropostaToDto(Proposta proposta);
+
+    List<PropostaResponseDto> convertListEntityToListDto(Iterable<Proposta> propostas);
+
+    default String setValorSolicitadoFmt(Proposta proposta) {
+        return NumberFormat.getCurrencyInstance().format(proposta.getValorSolicitado());
+    }
 }
