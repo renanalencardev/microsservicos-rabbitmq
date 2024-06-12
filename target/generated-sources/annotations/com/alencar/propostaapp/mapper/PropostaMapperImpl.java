@@ -4,13 +4,17 @@ import com.alencar.propostaapp.dto.PropostaRequestDto;
 import com.alencar.propostaapp.dto.PropostaResponseDto;
 import com.alencar.propostaapp.entity.Proposta;
 import com.alencar.propostaapp.entity.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-10T14:18:10-0300",
+    date = "2024-06-12T11:07:03-0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.11 (Oracle Corporation)"
 )
+@Component
 public class PropostaMapperImpl implements PropostaMapper {
 
     @Override
@@ -42,12 +46,27 @@ public class PropostaMapperImpl implements PropostaMapper {
         propostaResponseDto.setCpf( propostaUsuarioCpf( proposta ) );
         propostaResponseDto.setRenda( propostaUsuarioRenda( proposta ) );
         propostaResponseDto.setId( proposta.getId() );
-        propostaResponseDto.setValorSolicitado( proposta.getValorSolicitado() );
         propostaResponseDto.setPrazoPagamento( proposta.getPrazoPagamento() );
         propostaResponseDto.setAprovada( proposta.getAprovada() );
         propostaResponseDto.setObservacao( proposta.getObservacao() );
 
+        propostaResponseDto.setValorSolicitadoFmt( setValorSolicitadoFmt(proposta) );
+
         return propostaResponseDto;
+    }
+
+    @Override
+    public List<PropostaResponseDto> convertListEntityToListDto(Iterable<Proposta> propostas) {
+        if ( propostas == null ) {
+            return null;
+        }
+
+        List<PropostaResponseDto> list = new ArrayList<PropostaResponseDto>();
+        for ( Proposta proposta : propostas ) {
+            list.add( convertPropostaToDto( proposta ) );
+        }
+
+        return list;
     }
 
     protected Usuario propostaRequestDtoToUsuario(PropostaRequestDto propostaRequestDto) {
